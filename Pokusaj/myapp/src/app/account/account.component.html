@@ -1,0 +1,249 @@
+
+<div class="my-account">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#dashboard-tab" role="tab"><i class="fa fa-tachometer"></i>Profile</a>
+                    <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Orders</a>
+                    <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker"></i>Address</a>
+                    <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Change Details</a>
+                    <a class="nav-link" href="javascript:void(0);"  (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                        <h4>Profile Information</h4>
+                        <section  style="background-color: #f4f5f7;">
+                            <div class="container py-5">
+                              <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col col-lg-6 mb-4 mb-lg-0">
+                                  <div class="card mb-3" style="border-radius: .5rem;">
+                                    <div class="row g-0">
+                                     
+                                      <div class="col-md-12">
+                                        <div class="card-body p-4">
+                                          <h6>Information</h6>
+                                          <hr class="mt-0 mb-4">
+                                          <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                              <h6>Name</h6>
+                                              <p class="text-muted">{{kupac.ime}} {{kupac.prezime}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                              <h6>Username</h6>
+                                              <p class="text-muted">{{kupac.korisnicko_ime}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                              <h6>Email</h6>
+                                              <p class="text-muted">{{kupac.email}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                              <h6>Phone</h6>
+                                              <p class="text-muted">{{kupac.broj_telefona}}</p>
+                                            </div>
+                                              <div class="col-6 mb-3">
+                                                <h6>Street and number</h6>
+                                                <p class="text-muted">{{address.ulica_broj}}</p>
+                                              </div>
+                                              <div class="col-6 mb-3">
+                                                <h6>City</h6>
+                                                <p class="text-muted">{{address.postanski_broj}} {{address.grad}}</p>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                    </div>
+                    <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                              <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Total Price</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="align-middle">
+                                <tr *ngFor="let order of orderData">
+                                    <td>
+                                      {{order.id}}
+                                    </td> 
+                                    <td>
+                                        {{order.datum | date: 'dd MMM yyyy '}}
+                                        
+                                    </td>
+                                    <td>
+                                        {{order.datum | date: 'hh:mm a'}}
+                                        
+                                    </td>
+                                    <td>€ {{order.ukupnaCena}}</td>
+                                    <td> {{order.status}}</td>
+                                    <td *ngIf="order.status==='In progress'"><button class="btn" (click)="cancelOrder(order)" >Cancel order</button></td>
+                                    <td *ngIf="order.status!='In progress'"> </td>
+                                </tr>
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                   
+                    <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
+                        <h4>Address</h4>
+                        <div class="row" [ngSwitch]="type">
+                            <div *ngSwitchCase="'default'">
+                            <div class="col-md-12">
+                                <h5>Shipping Address</h5>
+                                <p>{{address.ulica_broj}}, {{address.postanski_broj}}, {{address.grad}}</p>
+                                <p>Phone number: {{address.broj_telefona}}</p>
+                                <button class="btn" (click)="show()">Edit Address</button>
+                            </div></div>
+                            <div class="row" *ngSwitchCase="'show'">
+                            <div class="col-md-6">
+                                <h5>Shipping Address</h5>
+                                <p>{{address.ulica_broj}}, {{address.postanski_broj}} {{address.grad}}</p>
+                                <p>{{address.broj_telefona}}</p>
+                                <button class="btn" (click)="show()">Edit Address</button>
+                            </div>
+                             <div class="col-md-6">
+                                <form [formGroup]="updateAddress" (ngSubmit)="updateAddressForm()">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <input class="form-control" formControlName="grad" type="text" [ngModel] [ngClass]="{ 'is-invalid': submitted3 && f3['grad'].errors }" placeholder="City">
+                                            <div *ngIf="submitted3 && f3['grad'].errors" class="invalid-feedback">
+                                                <div *ngIf="f3['grad'].errors['required']">City is required</div>
+                                              </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input class="form-control"    formControlName="ulica_broj" [ngModel] type="text" placeholder="Street and number" [ngClass]="{ 'is-invalid': submitted3 && f3['ulica_broj'].errors }">
+                                            <div *ngIf="submitted3 && f3['ulica_broj'].errors" class="invalid-feedback">
+                                                <div *ngIf="f3['ulica_broj'].errors['required']">Street is required</div>
+                
+                                              </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input class="form-control" type="text" [ngModel] formControlName="postanski_broj" placeholder="Zip code" [ngClass]="{ 'is-invalid': submitted3 && f3['postanski_broj'].errors }">
+                                            <div
+                                            *ngIf="submitted3 && f3['postanski_broj'].errors"
+                                            class="invalid-feedback"
+                                          >
+                                            <div *ngIf="f3['postanski_broj'].errors['required']">
+                                              Zip code is required
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input class="form-control"    formControlName="broj_telefona" [ngModel] type="text" placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted3 && f3['broj_telefona'].errors }">
+                                            <div *ngIf="submitted3 && f3['broj_telefona'].errors" class="invalid-feedback">
+                                                <div *ngIf="f3['broj_telefona'].errors['required']">Phone number is required</div>
+                                              </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button class="btn" type="submit" >Save Changes</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                            </div> 
+                        </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
+                        <h4>Account Details</h4>
+                        <form [formGroup]="updateDetailForm" (ngSubmit)="updateDetailsForm()">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input class="form-control"  formControlName="ime" type="text" placeholder="First Name"  [ngClass]="{ 'is-invalid': submitted && f['ime'].errors }">
+                                <div *ngIf="submitted && f['ime'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['ime'].errors['required']">Name is required</div>
+                                  </div>
+                                </div>
+                            
+                            <div class="col-md-6 form-group">
+                                <input class="form-control"  formControlName="prezime" type="text" placeholder="Last Name" [ngClass]="{ 'is-invalid': submitted && f['prezime'].errors }">
+                                <div *ngIf="submitted && f['prezime'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['prezime'].errors['required']">Surname is required</div>
+                                  </div>
+                                </div>
+                           
+                            <div class="col-md-6 form-group">
+                                <input class="form-control"  formControlName="broj_telefona"  type="text" placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f['broj_telefona'].errors }">
+                                <div *ngIf="submitted && f['broj_telefona'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['broj_telefona'].errors['required']">Phone number is required</div>
+                                  </div>
+                                </div>
+                           
+                            <div class="col-md-6 form-group">
+                                <input class="form-control"  formControlName="email" type="text" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                    <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                                  </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn" type="submit">Update Account</button>
+                                <br><br>
+                            </div>
+                        </div>
+                    </form>
+                        <h4>Password change</h4>
+                        <form [formGroup]="updateDetailForm2" (ngSubmit)="updateDetailsForm2()">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input class="form-control" formControlName="lozinka" type="password" [ngModel] [ngClass]="{ 'is-invalid': submitted2 && f2['lozinka'].errors }" placeholder="Current Password">
+                                <div *ngIf="submitted2 && f2['lozinka'].errors" class="invalid-feedback">
+                                    <div *ngIf="f2['lozinka'].errors['required']">Password is required</div>
+                                    <div *ngIf="f2['lozinka'].errors['minlength']">
+                                      Password must be at least 6 characters
+                                    </div>
+                                    <div *ngIf="f2['lozinka'].errors['maxlength']">
+                                      Username must not exceed 40 characters
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input class="form-control"    formControlName="nova_lozinka" [ngModel] type="password" placeholder="New Password" [ngClass]="{ 'is-invalid': submitted2 && f2['nova_lozinka'].errors }">
+                                <div *ngIf="submitted2 && f2['nova_lozinka'].errors" class="invalid-feedback">
+                                    <div *ngIf="f2['nova_lozinka'].errors['required']">Password is required</div>
+                                    <div *ngIf="f2['nova_lozinka'].errors['minlength']">
+                                      Password must be at least 6 characters
+                                    </div>
+                                    <div *ngIf="f2['nova_lozinka'].errors['maxlength']">
+                                      Username must not exceed 40 characters
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input class="form-control" type="password" [ngModel] formControlName="potvrditi_lozinku" placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted2 && f2['potvrditi_lozinku'].errors }">
+                                <div
+                                *ngIf="submitted2 && f2['potvrditi_lozinku'].errors"
+                                class="invalid-feedback"
+                              >
+                                <div *ngIf="f2['potvrditi_lozinku'].errors['required']">
+                                  Confirm Password is required
+                                </div>
+                                <div *ngIf="f2['potvrditi_lozinku'].errors['matching']">
+                                  Confirm Password does not match
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn" type="submit" >Save Changes</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

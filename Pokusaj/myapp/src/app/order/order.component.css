@@ -1,0 +1,24 @@
+.order-page {
+    position: relative;
+    padding: 30px 0;
+}
+.order-page .order-page-inner {
+    padding: 30px;
+    background: #ffffff;
+}
+
+.order-page .order-page-inner .table .thead-dark th {
+    text-align: center;
+    color: #353535;
+    background: #ffffff;
+    border-color: #dddddd;
+    border-bottom: none;
+    vertical-align: middle;
+}
+ .table td{ 
+      vertical-align: middle;
+	  text-align: center;
+    }
+.table{
+    text-align: center;
+} 

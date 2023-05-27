@@ -1,0 +1,82 @@
+td{
+ color:black;
+}
+span{
+    color:black;
+}
+
+#hidden_div1 {
+    display: none;
+}
+#hidden_div0 {
+    display: none;
+}
+#hidden_div2 {
+    display: none;
+}
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border: 1px solid #FF6F61;
+    color: #FF6F61;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+ }
+ select::-ms-expand {
+    display: none;
+ }
+select.decorated option:hover{
+    box-shadow: 0 0 10px 100px #FF6F61 inset;
+}
+    
+ .select {
+    position: relative;
+    display: flex;
+    height: 35px;
+   
+    line-height: 2.2; 
+    background: #FF6F61;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background:#FF6F61;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color:white;
+ }
+ #btn-main:hover {
+    color: #ffffff;
+    background: #FF6F61;
+    border: 1px solid #FF6F61;
+}
+#btn-main {
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}
+select.form-control[size] {
+    height: inherit; 
+}
+select.form-control:not([size]):not([multiple]) {
+     height: inherit;
+}
+.form-control{
+    height: 33px;
+}

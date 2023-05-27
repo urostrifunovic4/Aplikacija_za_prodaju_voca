@@ -1,0 +1,88 @@
+
+        <div class="cart-page">
+            <div class="container-fluid" [ngSwitch]="type">
+                <div class="row" *ngSwitchCase="'with'">
+                    <div class="col-lg-8" >
+                        <div class="cart-page-inner">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="align-middle">
+                                        <tr *ngFor="let c of cartData">
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="data:image/jpeg;base64,{{c.string64}}" alt="Image"></a>
+                                                    <p><a href="" routerLink="/detail/{{c.id_vocka_vrsta}}" >{{c.naziv}}</a></p>
+                                                </div>
+                                            </td>
+                                            <td>€ {{c.cena}}</td>
+                                            <td>
+                                                <div class="qty">
+                                                    <button class="btn-minus" (click)="handleQuantity('min',c.id)" ><i class="fa fa-minus"></i></button>
+                                               
+                                                    <input type="text" #inputElement_{{c.id}} name="vrednost"(keyup)="handleQuantity('inp',c.id)" value={{c.dodata_kolicina}} min="1" [attr.maxlength]=c.kolicina max={{c.kolicina}} size="1" id={{c.id}} />
+                                                        
+                                                    <button class="btn-plus" (click)="handleQuantity('plus',c.id)"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </td>
+                                            <td>{{c.dodata_kolicina*c.cena}} </td>
+                                            <td><button class="form-button"(click)="removeToCart(c.id_vocka_vrsta)"><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cart-page-inner">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="coupon">
+                                        <input [disabled]="submitted" type="text" id="code" [(ngModel)]="filterCode" placeholder="Coupon Code">
+                                        <button [disabled]="submitted" (click)="applyCode()">Apply Code</button>
+                                       
+                                    </div> <div  *ngIf='submitted && msg==="Kupon is applied."'>
+                                         <p style="margin-left:8px;"> Coupon is applied.</p>  
+                                          </div>
+                                          <div *ngIf='!submitted && msg==="Kupon is invalid."'>
+                                            <p style="margin-left:8px; color:red;"> Coupon is invalid.</p>  
+                                             </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="cart-summary">
+                                        <div class="cart-content">
+                                            <h1>Cart Summary</h1>
+                                            <p>Product Total<span>€ {{this.price.cena}}</span></p>
+                                            <p>Discount<span>€ {{kupon.procenat}}% (-{{percent}})</span></p>
+                                            <p>Shipping Cost<span>€ {{this.price.dostava}}</span></p>
+                                            <h2>Grand Total<span>€ {{this.price.ukupno}}</span></h2>
+                                        </div>
+                                        <div class="cart-btn">
+                                            <button (click)="checkout()">Checkout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="row"  class="cart-page-inner" *ngSwitchCase="'without'">
+                <div class="col-lg-8" >
+                  Cart is empty!
+                </div>
+            </div>
+        </div> 
+    </div>
+      
+        
+       

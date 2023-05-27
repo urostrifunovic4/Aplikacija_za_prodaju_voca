@@ -1,0 +1,61 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+</script>
+  <!--  <div *ngIf="this.loader.getLoading()" class="cssload-container">
+    <div class="cssload-speeding-wheel"></div>
+</div>   -->
+<div class="my-account">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                    <h2 class="title" style="background-color: white; align-self: center; margin-bottom: 0px; margin-top:15px;">CATEGORY</h2>
+                    <hr style="color: #a9a9a9;opacity: 0.3; margin: 15px; margin-bottom:0px">
+                    <a  class="nav-link " (click)="getVrsta(v.id)" *ngFor="let v of vocke; let index = index;"   href="#dashboard-tab" id="dashboard-nav{{index}}" data-toggle="pill"  role="tab"><i class="fa fa-arrow-right"></i>{{v.naziv}}</a>
+                    </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content"> 
+                    <div class="tab-pane fade show active"  id="dashboard-tab"   role="tabpanel"  aria-labelledby="dashboard-nav">
+                        <div class="container-fluid" [ngSwitch]="type" >
+                            <div class="row align-items-center card-group" *ngSwitchCase="'fruits'"> 
+                       <div class="product-item col-md-4"   *ngFor="let vr of getvocke;let index=index" style="padding-bottom: 70px;">
+                              <div class="product-title card">
+                                <a href="" routerLink="/detail/{{vr.id}}">{{vr.naziv}}</a> 
+                                    <div class="ratting">
+                                        <ngb-rating  *ngIf="doRating(vr.id)" [(rate)]="brzv" [readonly]="true"  [max]="5">
+                                            <ng-template let-fill="fill">
+                                            <span *ngIf="fill === 100" class="star full">★</span>
+                                                <span *ngIf="fill === 0" class="star">&star;</span>
+                                                <span *ngIf="fill < 100 && fill > 0" class="star">
+                                                <span class="half" [style.width.%]="fill">★</span>&star;
+                                                </span>
+                                            </ng-template>
+                                            </ngb-rating>     
+                                    </div>
+                                       </div>
+                                        <div class="product-image">
+                                           <a href="product-detail.html">  
+                                            <img src="data:image/jpeg;base64,{{vr.string64}}" style="object-fit: cover;"  alt="Product Image">
+                                              </a>
+                                               <div class="product-action">
+                                                   <a class="btn"(click)="addToCart(vr)"><i class="fa fa-cart-plus"></i></a>
+                                                   <a class="btn" (click)="addToWishList(vr)"><i class="fa fa-heart"></i></a>
+                                                   </div>
+                                                   </div>
+                                                   <div class="product-price">
+                                                    <h3><span>€</span> {{vr.cena}}</h3>
+                                                        <a class="btn" (click)="addToCart(vr)"><i class="fa fa-shopping-cart"></i>Kupi odmah!</a>
+                                                    </div>
+                                                  </div>
+                            </div>
+                            <div class="row align-items-center" *ngSwitchCase="'default'"> 
+                                <p>There are currently no fruits for this category.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

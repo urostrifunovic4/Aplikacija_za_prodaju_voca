@@ -1,0 +1,6 @@
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.csproj.AssemblyReference.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.AssemblyInfoInputs.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.AssemblyInfo.cs
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.csproj.CoreCompileInputs.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\ProdavnicaVoca\obj\Release\net5.0\ProdavnicaVoca.MvcApplicationPartsAssemblyInfo.cache

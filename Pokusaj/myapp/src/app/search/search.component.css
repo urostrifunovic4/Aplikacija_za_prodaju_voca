@@ -1,0 +1,44 @@
+.search-item{
+    width: 800px;
+    margin: 25px auto;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+.search-item img{
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+}
+.search-item h6{
+    color: blueviolet;
+    font-size: 24px;
+}
+.search-item p{
+    margin-bottom: 5px;
+}
+
+.search-page-inner{
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 75px;
+}
+.price p {
+    display: inline-block;
+    color: #FF6F61;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .price h4{
+    display: inline-block;
+    width: 60px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+ .price span {
+    color: rgba(0, 0, 0, 0.486);
+    font-size: 20px;
+  }
+  .price{
+    margin-bottom: 10px;
+  }

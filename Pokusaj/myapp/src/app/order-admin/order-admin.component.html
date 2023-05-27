@@ -1,0 +1,150 @@
+<div class="orders-page">
+    <div class="container-fluid ">
+        <div class="orders-page-inner">
+            <div>
+        <h4 style="display:inline-block">ALL ORDERS</h4>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+                <div class="card-body p-4">
+                  <div ng-app="myapp" ng-contoller="tableContoller1">
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">+/-</th>
+                            <th scope="col">Order id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let order of orderData; let i = index;">
+                            <tr [ngStyle]="{'border':order.expanded=== true ? ' 3px solid #56605b' : 'none'}" style="cursor: pointer;">
+                              <td [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}" style="cursor: pointer;"  (click)="order.expanded = !order.expanded" > {{ order.expanded ? '&ndash;' : '+'}}</td>
+                              <td  [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}"> {{order.id}} </td>
+                              <td [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}"> {{order.datum}} </td>
+                              <td [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}"> {{order.ukupnaCena}} </td>
+                              <td *ngIf="i!=id" [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}">
+                                <span class="badge badge-dot mr-1" [ngStyle]="{'background-color': order.status==='In progress' ? 'green' : (order.status=='Completed'? 'blue' : (order.status=='Canceled'? 'yellow' : (order.status=='Closed'? 'red' : null))) }">
+                                  <i class="bg-danger"></i> 
+                                </span> {{order.status}}</td>
+                              <td *ngIf="i===id" [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}">
+                                <div class="select">
+                                <select id="combo1"  #price  >
+                                  <option> In progress</option>
+                                  <option> Completed </option>
+                                  <option> Closed </option>
+                                  <option> Canceled </option>
+
+                              </select>
+                              <button class="btn button" id="save" (click)="onSelected(price.value,order.id)">Save</button>
+                            </div>
+                          </td>
+                              <td [ngStyle]="{'background-color':order.expanded=== true ? '#ff6f61db' : 'white'}">   <div id="container">
+                                <div id="menu-wrap" >
+                                  <input type="checkbox"  id={{order.id}} class="toggler" />
+                                  <div class="dots" >
+                                    <div></div>
+                                  </div>
+                                  <div class="menu">
+                                    <div>
+                                      <ul>
+                                        <li><a  class="link" (click)="Status(order.id,i)">Change status</a></li>
+                                        <li><a  class="link"  [ngStyle]="{'pointer-events':order.status==='Canceled' ? 'auto' : 'none','color':order.status==='Canceled' ? null : '#dddddd'}" (click)="deleteOrder(order.id)">Delete order</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div></td>
+                            </tr>
+                          
+                            <ng-container  *ngIf="order.expanded" style="padding-left: 12px; text-align:center; display:flex">
+                              <tr style="border: 3px solid #56605b;
+                               border-bottom: none; 
+                              border-top: none;">
+
+                              <td colspan="6" class="text-center"  style="text-align:center;background-color: antiquewhite; " >PRODUCTS
+
+                              </td></tr>
+                                <tr style="border: 3px solid #56605b;
+                                border-top: none;">
+                                    <th  colspan="2" style="background: #ff6f61b0;
+                                    color: dimgrey;">Product</th>
+                                    <th style="background: #ff6f61b0;
+                                    color: dimgrey;" >Price</th>
+                                    <th style="background: #ff6f61b0;
+                                    color: dimgrey;">Quantity</th>
+                                    <th style="background: #ff6f61b0;
+                                    color: dimgrey;">Total</th>
+                                    <th style="background: #ff6f61b0;
+                                    color: dimgrey;">Action</th>
+                                </tr>
+                                <tr style="background: #ff6f61b0; border: 3px solid #56605b;
+                                border-top: none;
+                                color: dimgrey;" *ngFor="let c of findDetails(order)" style="background: #ff6f618c">
+                                    <td colspan="2">
+                                        <div class="img">
+                                            <a href="#"><img src="data:image/jpeg;base64,{{c.string64}}" alt="Image"></a>
+                                            <p>{{c.naziv}}</p>
+                                        </div>
+                                    </td>
+                                    <td>${{c.cena}}</td>
+                                    <td>
+                                       {{c.dodata_kolicina}}
+                                    </td>
+                                    <td>{{c.dodata_kolicina*c.cena}} </td>
+                                    <td><button class="btn btn-cart" routerLink="/detail/{{c.id_vocka_vrsta}}" >View</button></td>
+                                </tr>
+                                <tr style="border: 3px solid #56605b;
+                                border-bottom: none; 
+                                border-top: none;">
+
+                                  <td colspan="6" class="text-center"  style="text-align:center; background-color: antiquewhite;">CUSTOMER
+    
+                                  </td></tr>
+                                <tr style="border: 3px solid #56605b;
+                                border-bottom: none; 
+                                border-top: none;">
+                                  <th  style="background: #ff6f61b0;
+                                  color: dimgrey;" colspan="2">Id</th>
+                                  <th  style="background: #ff6f61b0;
+                                  color: dimgrey;">Name</th>
+                                  <th  style="background: #ff6f61b0;
+                                  color: dimgrey;">Address</th>
+                                  <th  style="background: #ff6f61b0;
+                                  color: dimgrey;" >Phone number</th>
+                                  <th  style="background: #ff6f61b0;
+                                  color: dimgrey;">E-mail</th>
+                              </tr>
+                              <tr style="background: #ff6f618c; border: 3px solid #56605b;
+                              
+                              border-top: none;">
+                                  <td colspan="2">
+                                     {{user.id}}
+                                  </td>
+                                  <td>{{user.ime}}  {{user.prezime}}</td>
+                                  <td>
+                                     {{user.adresa}}, {{user.postanski_broj}} {{user.grad}}
+                                  </td>
+                                  <td>{{user.broj_telefona}} </td>
+                                  <td>{{user.email}}</td>
+                              </tr>
+                                
+                            </ng-container>
+                          </ng-container>
+                          
+                      </table>
+                  </div>
+                   
+                </div></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+ </div>

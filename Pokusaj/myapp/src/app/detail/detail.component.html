@@ -1,0 +1,218 @@
+
+<div class="product-detail" style="background: linear-gradient(90deg, #f598a8, #f6edb2);">
+    <div class="container-fluid">
+        <div class="row" style="justify-content:center">
+            <div class="col-lg-8">
+                <div class="product-detail-top">
+                    <div class="row align-items-center">
+                        <div class="col-md-6" style="text-align: center;">
+                            <div class="product-slider-single normal-slider">
+                                <img  src="data:image/jpeg;base64,{{productData.string64}}" alt="Product Image">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="text-align: center;">
+                            <div class="product-content">
+                              <div class="row">
+                                <div class="col-md-6">
+                                <div class="title"><h2>{{productData.naziv}}</h2></div></div>
+                             <div class="col-md-6">
+                                <div class="ratting">
+                                    <ngb-rating [(rate)]="brzv" [readonly]="true"  [max]="5">
+                                        <ng-template let-fill="fill">
+                                        <span *ngIf="fill === 100" class="star full">★</span>
+                                            <span *ngIf="fill === 0" class="star" >&star;</span>
+                                            <span *ngIf="fill < 100 && fill > 0" class="star">
+                                            <span class="half" [style.width.%]="fill">★</span>&star;
+                                            </span>
+                                        </ng-template>
+                                        </ngb-rating> ({{ocenaItems}})  
+                                </div></div>
+                              </div>
+                                <div class="price">
+                                    <h4>Price:</h4>
+                                    <p><span>€</span> {{productData.cena}} </p>
+                                </div>
+                                <div class="price">
+                                  <h5>Quantity on stock: {{productData.kolicina}}</h5>
+                                  
+                              </div>
+                                <div class="qty">
+                                    <button class="btn-minus"  (click)="handleQuantity('min')"><i id="faMP" class="fa fa-minus"></i></button>
+                                    
+                                    <input type="text" #inputElement_{{productData.id}} name="vrednost" value="{{kol}}" maxlength="2" max="10" size="1" id={{productData.id}} />
+                                        
+                                    <button class="btn-plus"  (click)="handleQuantity('plus')"><i id="faMP" class="fa fa-plus"></i></button>
+                                </div> <div class="row">
+                                <div *ngIf="removeCart" class="col-md-6  action">
+                                    <a class="btn" (click)="removeToCart(productData.id)"><i class="fa fa-remove"></i>Remove from Cart</a>
+                                </div>
+                                <div *ngIf="!removeCart" class="col-md-6  action">
+                                    <a class="btn" (click)="addToCart()"><i class="fa fa-shopping-cart" ></i>Add to Cart</a>
+                                </div>
+                                
+                                <div *ngIf="!removeWish" class="col-md-6 action">
+                                    <a class="btn" (click)="addToWishList()"><i class="fa fa-heart"></i>Add to wishlist</a>
+                                </div>
+                                <div *ngIf="removeWish" class="col-md-6 action">
+                                    <a class="btn" (click)="removeToWish(productData.id)"><i class="fa fa-remove"></i>Remove from Wishlist</a>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row product-detail-bottom">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-pills nav-justified">
+                           
+                            <li class="nav-item ">
+                                <a class="nav-link active" data-toggle="pill" href="#reviews">Reviews ({{ocenaItems}})</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#rate">Rate this product</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            
+                         
+                            <div id="reviews" class="container tab-pane active " [ngSwitch]="type" >
+                                <h4>Reviews</h4>
+                                <hr style="color: #a9a9a9;opacity: 0.3;">
+                                <div id="st">
+                                <p class="heading">User Rating</p>
+                                <div class="ratting" id="ratting">
+                                <ngb-rating [(rate)]="brzv" [readonly]="true"  [max]="5">
+                                    <ng-template let-fill="fill">
+                                    <span *ngIf="fill === 100" class="star full" style=" font-size: 60px;">★</span>
+                                        <span *ngIf="fill === 0" class="star" style=" font-size: 60px;">&star;</span>
+                                        <span *ngIf="fill < 100 && fill > 0" class="star" style=" font-size: 60px;">
+                                        <span class="half" [style.width.%]="fill" style=" font-size: 60px;">★</span>&star;
+                                        </span>
+                                    </ng-template>
+                                    </ngb-rating> </div>
+                                <p id="t">{{this.brzv}} average based on {{ocenaItems}} reviews.</p></div>
+                                <hr style="border:3px solid #f1f1f1">   
+                                <div *ngSwitchCase="'review'">
+                                    <div class="row">
+                                        <div class="side">
+                                            <a id="si" (click)="Star('5 star')">5 star</a>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-5" [style.width]="br5bar + '%' "></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>{{br5}}</div>
+                                        </div>
+                                        <div class="side">
+                                            <a id="si" (click)="Star('4 star')">4 star</a>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-4" [style.width]="br4bar + '%' "></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>{{br4}}</div>
+                                        </div>
+                                        <div class="side">
+                                            <a id="si" (click)="Star('3 star')">3 star</a>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-3" [style.width]="br3bar + '%' "></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>{{br3}}</div>
+                                        </div>
+                                        <div class="side">
+                                            <a id="si" (click)="Star('2 star')">2 star</a>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-2" [style.width]="br2bar + '%' "></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>{{br2}}</div>
+                                        </div>
+                                        <div class="side">
+                                          <a id="si" (click)="Star('1 star')">1 star</a>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-1" [style.width]="br1bar + '%' "></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>{{br1}}</div>
+                                        </div>
+                                      </div>
+                                      <div [ngSwitch]="typeOc">
+                                        <div *ngSwitchCase="'default'">
+                                <div class="reviews-submitted"  *ngFor="let ocena of oceneIspis">
+                                  <hr style="color: #a9a9a9;opacity: 0.3;">  <div class="reviewer">{{ocena.ime}} - <span>{{ocena.datum | date: 'dd/MM/yyyy'}} </span></div>
+                                    <div class="ratting">
+                                      <ngb-rating [max]="5"  style="font-size: 20px;" [(rate)]="ocena.broj_zvezdica" [readonly]="true">
+                                      
+                                    </ngb-rating> 
+                                    </div>
+                                    <p  >
+                                        {{ocena.opis}}
+                                          </p>
+                                </div>  </div>
+                            <div *ngSwitchCase="'null'"> <hr style="color: #a9a9a9;opacity: 0.3;"><p>There are currently no ratings with this number of stars.</p></div>
+                            </div></div>
+                                <div  *ngSwitchCase="'default'">
+                                    <hr style="color: #a9a9a9;opacity: 0.3;">
+                                    <p style="margin-top: 30px;">
+                                        There are currently no reviews for this product.   
+                                    </p></div>
+                                </div>
+                                
+                            
+                            <div id="rate" class="container tab-pane fade" [ngSwitch]="typeOcena" >
+                                <hr style="color: #a9a9a9;opacity: 0.3;">
+                                
+                           <form class="reviews-submit" *ngSwitchCase="'default'" [formGroup]="form" (ngSubmit)="insertOcena(productData.id)">
+                                    <h4>Give your Review:</h4>
+                                    <div class="col-sm-12">
+                                    <div class="ratting">
+                                        <ngb-rating [max]="5" style="font-size: 80px;"   [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+                                    <h5>Current Rating: {{currentRate}}</h5>
+                                       </div>
+                                    </div>
+                                    <div class="row form" style="margin-top: 30px;">
+                                        <div class="col-sm-6 form-group">
+                                            <input type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['ime'].errors }"  formControlName="ime" placeholder="Name"  style="margin-bottom: 5px;">
+                                            <div *ngIf="submitted && f['ime'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['ime'].errors['required']"  style="margin-left: 15px; " >Name is required</div>
+                                              </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email" placeholder="E-mail" style="margin-bottom: 5px;">
+                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['email'].errors['required']" style="margin-left: 15px; " >E-mail is required</div>
+                                              </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <textarea formControlName="opis" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['opis'].errors }" placeholder="Review"  style="margin-bottom: 5px; "></textarea>
+                                            <div *ngIf="submitted && f['opis'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['opis'].errors['required']"  style="margin-left: 15px; margin-bottom: 10px; " >Review is required</div>
+                                              </div>
+                                        </div>
+                                        <div class="col-sm-12" style="margin-top: 20px;">
+                                            <button class="btn" >Submit</button>
+                                        </div>
+                                    </div>
+                         </form> 
+                       <div *ngSwitchCase="'success'"> <p>You have successfully rated this product.</p></div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+

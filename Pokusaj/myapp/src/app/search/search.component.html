@@ -1,0 +1,27 @@
+<div class="container-fluid" style="padding-right: 200px;
+padding-left: 200px;">
+  <div class="search-page-inner" *ngIf="searchResult.length>0">
+    <div>
+      <h4 style="display:inline-block">Search results:</h4>
+      <h6 style=" float: right; color:gray" class="ml-auto">Number of products found:  {{searchResult.length}}</h6></div>
+<div class="row search-item" *ngFor="let item of searchResult">
+    <div class="col-sm-3">
+      <a routerLink="/detail/{{item.id}}"><img src="data:image/jpeg;base64,{{item.string64}}"  alt="Product Image"></a>
+    </div>
+    <div class="col-sm-8 details">
+        <h6>  <a routerLink="/detail/{{item.id}}"> {{item.naziv}} </a></h6>
+        <div class="price">
+          <h4>Price:</h4>
+          <p><span>€</span> {{item.cena}} </p>
+      </div>
+      <div class="price">
+        <h5>Quantity on stock: {{item.kolicina}}</h5>
+        
+    </div>
+    </div>
+</div>
+</div>
+<div class="search-page-inner" *ngIf="searchResult.length==0">
+  <p>There are no products with that name.</p>
+</div>
+</div>

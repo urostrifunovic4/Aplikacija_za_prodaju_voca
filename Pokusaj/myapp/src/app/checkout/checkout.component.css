@@ -1,0 +1,19 @@
+label{
+    margin-left: 4px;
+}
+#info{
+    color:white;
+    background-color: #FF6F61 ;
+}
+#info:hover{
+    color:#FF6F61;
+    background-color:white;  
+    border:2px solid #FF6F61;
+}
+::ng-deep .form-control.is-invalid, .was-validated .form-control:invalid
+{
+margin-bottom: 2px;
+}
+.invalid-feedback {
+    margin-bottom: 10px;
+}

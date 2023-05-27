@@ -1,0 +1,401 @@
+
+ <div class="my-account">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-3">
+              <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                  <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#insert-fruit-tab" role="tab"><i class="fa fa-plus" aria-hidden="true"></i>Insert fruit</a>
+                  <a class="nav-link" id="orders-nav" data-toggle="pill" href="#update-fruit-tab" role="tab"><i class="fa-solid fa-pen-to-square"  aria-hidden="true"></i>Update fruit</a>
+                  <a class="nav-link" id="payment-nav" data-toggle="pill" href="#get-all-fruits-tab" role="tab"><i class="fa-solid fa-table-list" ></i>Get all fruits</a>
+                  <a class="nav-link" id="address-nav" data-toggle="pill" href="#insert-type-fruit-tab" role="tab"><i class="fa fa-plus" aria-hidden="true"></i>Insert a type of fruit</a>
+                  <a class="nav-link" id="account-nav" data-toggle="pill" href="#update-type-fruit-tab" role="tab"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>Update a type of fruit</a>
+                  <a class="nav-link" id="account-nav" data-toggle="pill" href="#get-all-type-fruit-tab" role="tab"><i class="fa-solid fa-table-list"></i>Get all types of fruit</a>
+                </div>
+          </div>
+          <div class="col-md-9">
+              <div class="tab-content">
+                  <div class="tab-pane fade show active" id="insert-fruit-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                      <h4>INSERT FRUIT</h4>
+                      <section  style="background-color: #f4f5f7;">
+                        <div class="container py-5">
+                          <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col col-lg-6 mb-4 mb-lg-0">
+                              <div class="card mb-3" style="border-radius: .5rem;">
+                                <div class="row g-0">
+                                    <div class="card-body p-4">
+                                      <h6>Add new fruit</h6>
+                                      <hr class="mt-0 mb-4">
+                                      <form #insertForm="ngForm" [formGroup]="ngForm" (ngSubmit)="insertVocka(insertForm.value)" class="form-inline">
+                                        <div class="col-md-12">
+                                        <div class="input-group mb-2 mr-sm-2">
+                                          <div class="input-group-prepend">
+                                           
+                                            <div class="input-group-text"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                          </div>
+                                          <input type="text" class="form-control" formControlName="naziv"  id="nazivv" placeholder="Name of the fruit" [ngClass]="{ 'is-invalid': submitted && f['naziv'].errors }">
+                                          <div *ngIf="submitted && f['naziv'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['naziv'].errors['required']">Name is required</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 15px;">
+                                        <button type="submit"  id="btn-main" class="btn mb-2">Submit</button>
+                                    </div>  
+                                  </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                  </div>
+                  
+                  <div class="tab-pane fade show" id="update-fruit-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                    <h4>UPDATE FRUIT</h4>
+                    <section  style="background-color: #f4f5f7;">
+                      <div class="container py-5">
+                        <div class="row d-flex justify-content-center align-items-center">
+                          <div class="col col-lg-6 mb-4 mb-lg-0">
+                            <div class="card mb-3" style="border-radius: .5rem;">
+                              <div class="row g-0">
+                                  <div class="card-body p-4">
+                                    <h6>Edit data of existing fruit</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <form  #updateForm="ngForm"  [formGroup]="ngFormUpdate" (ngSubmit)="updateVocka(updateForm.value)" class="form-inline">
+                                    
+                                      <div class="col-md-6">
+                                      <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="id"  id="id" placeholder="Id" [ngClass]="{ 'is-invalid': submitted2 && f2['id'].errors }" >
+                                        <div *ngIf="submitted2 && f2['id'].errors" class="invalid-feedback">
+                                          <div *ngIf="f2['id'].errors['required']">Id is required</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                      <div class="col-md-6">
+                                      <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="naziv" id="nazivv" placeholder="Name of the fruit" [ngClass]="{ 'is-invalid': submitted2 && f2['naziv'].errors }">
+                                        <div *ngIf="submitted2 && f2['naziv'].errors" class="invalid-feedback">
+                                          <div *ngIf="f2['naziv'].errors['required']">Name is required</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                
+                                    <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 15px;">
+                                      <button type="submit" id="btn-main" class="btn mb-2">Submit</button>
+                                  </div>  </form>
+                                   
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                </div>
+
+                <div class="tab-pane fade show" id="get-all-fruits-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                  <h4>ALL FRUITS</h4>
+                  <section  style="background-color: #f4f5f7;">
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+                    <div class="container py-5">
+                      <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col col-lg-6 mb-4 mb-lg-0">
+                          <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="card-body p-4">
+                                  <div ng-app="myapp" ng-contoller="tableContoller">
+                                  <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                      <thead class="thead-dark">
+                                        <tr>
+                                          <th scope="col">Id</th>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                       <tr *ngFor="let vocka of vocke">
+                                          <td>
+                                            {{vocka.id}}
+                                            
+                                          </td>
+                                          <td>
+                                              <i class="bg-danger"></i> {{vocka.naziv}}
+                                          </td>
+                                          <td class="text-center">
+                                              <button class="btn btn-sm btn-icon-only" href="#" id="butt" (click)="deleteVocka(vocka)"    role="button"  aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-trash"></i>
+                                              </button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+              </div>
+              <div class="tab-pane fade show" id="insert-type-fruit-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                <h4>INSERT A TYPE OF FRUIT</h4>
+                    <section  style="background-color: #f4f5f7;">
+                      <div class="container py-5">
+                        <div class="d-flex justify-content-center align-items-center">
+                          <div class="col col-lg-6 mb-4 mb-lg-0">
+                            <div class="card mb-3" style="border-radius: .5rem;">
+                              <div class="g-0">
+                                  <div class="card-body p-4">
+                                    <h6>Add new type of fruit</h6>
+                                    <hr class="mt-0 mb-4">
+                                    
+                                    <form #insert1Form="ngForm" [formGroup]="ngFormInsert" (ngSubmit)="insertVockaVrsta(insert1Form.value)" class="form-inline">
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                      <label class="sr-only" for="naziv">Naziv</label>
+                                      <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="naziv" id="naziv" placeholder="Name" [ngClass]="{ 'is-invalid': submitted3 && f3['naziv'].errors }">
+                                        <div *ngIf="submitted3 && f3['naziv'].errors" class="invalid-feedback">
+                                          <div *ngIf="f3['naziv'].errors['required']">Name is required</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                      <div class="col-md-6">
+                                      <label class="sr-only" for="kolicina">Kolicina</label>
+                                      <div class="input-group mb-2 mr-sm-0" style="padding-right: 1Spx;">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text"><i class="fa-solid fa-scale-unbalanced-flip" aria-hidden="true"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="kolicina" id="kolicina" placeholder="Quantity"  [ngClass]="{ 'is-invalid': submitted3 && f3['kolicina'].errors }">
+                                        <div *ngIf="submitted3 && f3['kolicina'].errors" class="invalid-feedback">
+                                          <div *ngIf="f3['kolicina'].errors['required']">Quantity is required</div>
+                                        </div>
+                                      </div>
+                                    </div></div>
+                                    <div class="row" style="width: 568px;">
+                                    <div class="col-md-6">
+                                    <label class="sr-only" for="cena">Cena</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text"style="padding:6px 10px"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i></div>
+                                      </div>
+                                      <input type="text" class="form-control" formControlName="cena" id="cena" placeholder="Price"  [ngClass]="{ 'is-invalid': submitted3 && f3['cena'].errors }">
+                                      <div *ngIf="submitted3 && f3['cena'].errors" class="invalid-feedback">
+                                        <div *ngIf="f3['cena'].errors['required']">Price is required</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                    <div class="col-md-6">
+                                  <div class="select">
+                                    <select  formControlName="select" class="form-control" [ngClass]="{ 'is-invalid': submitted3 && f3['select'].errors }"#idType (change)="onSelectedType(idType.value)" onchange='this.size=1; this.blur();'
+                                   id="combo2" >
+                                     <option value="" selected disabled>--Please choose an option--</option> 
+                                        <option  id="opt" *ngFor="let vocka of vocke">{{vocka.naziv}}</option>
+                                    </select>
+                                  </div></div></div>
+                                  <div class="input-group">
+                                    <div style="margin-top: 30px;" class="col-md-5 "><label class="justify-content-end" style="margin-bottom: inherit;margin-top: 3px;
+                                    ">Upload Image</label> </div>
+                                  <div style="margin-top: 30px;" class="col-md-7">  <input type="file" accept="image/*" style="padding:0;padding-top: 4px;" class="form-control"  id="imagePath" (change)="onFileChange($event)" required formControlName="path" [ngClass]="{ 'is-invalid': submitted3 && f3['path'].errors }"/></div>
+                                  <div *ngIf="submitted3 && !sub" class="invalid-feedback">
+                                    <div *ngIf="!sub">Image is required</div>
+                                  </div>
+                                </div>
+                                 <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 25px;">
+                                      <button type="submit" id="btn-main" class="btn mb-2">Submit</button>
+                                  </div>  
+                                </form>
+                             
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+            </div>
+            <div class="tab-pane fade show" id="update-type-fruit-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+              <h4>UPDATE A TYPE OF FRUIT</h4>
+              <section  style="background-color: #f4f5f7;">
+                <div class="container py-5">
+                  <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col col-lg-10 mb-4 mb-lg-0">
+                      <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="row g-0">
+                            <div class="card-body p-4">
+                              <h6>Edit data of existing fruit type </h6>
+                              <hr class="mt-0 mb-4">
+                              <form   class="form-inline" style="justify-content:center">
+                                <div class="col-md-3">
+                                <div class="select">
+                                <select id="combo1"  (ngModelChange)="FlipOtherCombo($event)" 
+                                >
+                                <option value="" selected disabled hidden>--Choose--</option>
+                                  <option *ngFor="let vocka of vocke" id="comb" [value]="vocka.id">{{vocka.naziv}}</option>
+                              </select></div></div>
+                              <div class="col-md-1"><i style="    justify-content: center;
+                                display: flex;
+                                padding-top: 10px;"class="fa-solid fa-arrow-right"></i></div>
+                              <div class="col-md-3">
+                              <div class="select">
+                              <select [(ngModel)]="custSecond" #price (change)="onSelected(price.value)"
+                              name="custSecond" id="combo2" [ngModelOptions]="{standalone: true}" >
+                              <option value="any2" selected disabled hidden>--Choose--</option>
+                                  <option  *ngFor="let cm of combo">{{cm.naziv}}</option>
+                              </select></div></div>
+                              <div class="col-md-1"><i style="    justify-content: center;
+                                display: flex;
+                                padding-top: 10px;" class="fa-solid fa-arrow-right"></i></div>
+                              <div class="col-md-3">
+                              <div class="select">
+                              <select  id="combo3"  onChange="showDiv('hidden_div',this)">
+                              <option selected disabled hidden>--Choose--</option>
+                                  <option  value="0">Price</option>
+                                  <option  value="1">Quantity</option>
+                                  <option  value="2">Image</option>
+                              </select></div></div>
+                              
+                                <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 25px;">
+                              <div id="hidden_div0">
+                                <hr class="mt-0 mb-4">
+                                <form  #updatePrice="ngForm" style="justify-content:center"  [formGroup]="ngFormUpdatePrice" (ngSubmit)="updateVockaPrice(updatePrice.value)" class="form-inline">
+                                <label class="sr-only" for="cena">Price</label>
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                  </div>
+                                  <input type="text" class="form-control" formControlName="cena" id="cena" placeholder="Price" [ngClass]="{ 'is-invalid': submitted4 && f4['cena'].errors }">
+                                  <div *ngIf="submitted4 && f4['cena'].errors" class="invalid-feedback">
+                                    <div *ngIf="f4['cena'].errors['required']">Price is required</div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 15px;">
+                                  <button type="submit"id="btn-main" class="btn  mb-2">Submit</button>
+                              </div></form> 
+                              </div>
+                              <div id="hidden_div1">
+                                <hr class="mt-0 mb-4">
+                                <form  #updateQuantity="ngForm" style="justify-content:center" [formGroup]="ngFormUpdateQuantity" (ngSubmit)="updateVockaQuantity(updateQuantity.value)" class="form-inline">
+                                <label class="sr-only" for="kolicina">Quantity</label>
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                  </div>
+                                  <input type="text" class="form-control" formControlName="kolicina" id="kolicina" placeholder="Quantity" [ngClass]="{ 'is-invalid': submitted5 && f5['kolicina'].errors }">
+                                  <div *ngIf="submitted5 && f5['kolicina'].errors" class="invalid-feedback">
+                                    <div *ngIf="f5['kolicina'].errors['required']">Quantity is required</div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 15px;">
+                                  <button type="submit" id="btn-main" class="btn  mb-2">Submit</button>
+                              </div> </form>
+                              </div>
+                              <div id="hidden_div2">
+                                <hr class="mt-0 mb-4">
+                                <form  #updatePath="ngForm" style="justify-content:center" [formGroup]="ngFormUpdatePath" (ngSubmit)="updateVockaPath(updatePath.value)" class="form-inline">
+                                 <div class=""></div>
+                                  <div  class="col-md-5 mb-2  "><label class="justify-content-end" style="margin-bottom: inherit;">Upload Image</label> </div>
+                                  <div  class="col-md-7 mb-2 ">  <input type="file" accept="image/*" class="form-control" style="padding:0;padding-top: 4px;" id="imagePath"  formControlName="path" [ngClass]="{ 'is-invalid': submitted6 && f6['path'].errors }" (change)="onFileChange($event)" /></div>
+                                  <div *ngIf="submitted6 && f6['path'].errors" class="invalid-feedback">
+                                    <div *ngIf="f5['path'].errors['required']">Price is required</div>
+                                  </div>
+                                <div class="col-md-12 justify-content-center" style="display:flex; margin-top: 15px;">
+                                  <button type="submit" id="btn-main" class="btn  mb-2">Submit</button>
+                              </div> </form>
+                              </div></div>
+                                </form>
+                             
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          </div>
+
+            <div class="tab-pane fade show" id="get-all-type-fruit-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+              <h4>ALL TYPES OF FRUITS</h4>
+              <section  style="background-color: #f4f5f7;">
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+                <div class="container py-5">
+                  <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                      <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="row g-0">
+                            <div class="card-body p-4">
+                              <div ng-app="myapp" ng-contoller="tableContoller">
+                              <div class="table-responsive">
+                                <table class="table table-bordered">
+                                  <thead class="thead-dark">
+                                    <tr>
+                                      <th scope="col">Id</th>
+                                      <th scope="col">Name</th>
+                                      <th scope="col">Quantity</th>
+                                      <th scope="col">Price</th>
+                                      <th scope="col">Fruit category</th>
+                                      <th scope="col">Logo</th>
+                                      <th scope="col">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let vocka_vr of vockavrsta">
+                                       <td>
+                                         {{vocka_vr.id}}
+                                       </td>
+                                       <td>
+                                           <i class="bg-danger"></i> {{vocka_vr.naziv}}
+                                       </td>
+                                         <td>
+                                           {{vocka_vr.kolicina}}
+                                         </td>
+                                         <td>
+                                           {{vocka_vr.cena}} 
+                                         </td>
+                                         <td>
+                                           {{vocka_vr.id_vocke}}
+                                         </td>
+                                         <td>
+                                         <img style="width:50px; height:50px;" src="data:image/jpeg;base64,{{vocka_vr.string64}}"/> 
+                                         </td>
+                                         <td class="text-center">
+                                          <div class="dropdown">
+                                            <button class="btn btn-sm btn-icon-only" href="#" id="butt" (click)="deleteVockaVr(vocka_vr)"  role="button"  aria-haspopup="true" aria-expanded="false">
+                                              <i class="fas fa-trash"></i>
+                                            </button>
+                                          </div>
+                                        </td>
+                                     </tr>
+                                   </tbody>
+                                </table>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,75 @@
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+E:\Fakultet\Master\Objektno orijentisano projektovanje i metodologije\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\Projekat\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\danij\Downloads\PokusajPoslednji\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+E:\Sajt-projekat-gotov\Pokusaj\ProdavnicaVoca\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb

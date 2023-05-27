@@ -1,0 +1,224 @@
+
+<div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register">
+      <h1 id="naslov">SIGN UP HERE!</h1>
+      <hr style="
+        color: #a9a9a9;
+        opacity: 0.3;
+      ">
+      <div class="row">
+        <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-user"></i>
+        <input
+          type="text"
+          placeholder="Name"
+          formControlName="ime"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['ime'].errors }"
+        />
+        <div *ngIf="submitted && f['ime'].errors" class="invalid-feedback">
+          <div *ngIf="f['ime'].errors['required']">Name is required</div>
+        </div>
+      </div></div>
+      <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-user"></i>
+        <input
+          type="text"
+          placeholder="Surname"
+          formControlName="prezime"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['prezime'].errors }"
+        />
+        <div *ngIf="submitted && f['prezime'].errors" class="invalid-feedback">
+          <div *ngIf="f['prezime'].errors['required']">Surname is required</div>
+        </div>
+      </div></div>
+    </div>
+    
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-user"></i>
+        <input
+          type="text"
+          placeholder="Username"
+          formControlName="korisnicko_ime"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['korisnicko_ime'].errors }"
+        />
+        <div *ngIf="submitted && f['korisnicko_ime'].errors" class="invalid-feedback">
+          <div *ngIf="f['korisnicko_ime'].errors['required']">Username is required</div>
+          <div *ngIf="f['korisnicko_ime'].errors['minlength']">
+            Username must be at least 6 characters
+          </div>
+          <div *ngIf="f['korisnicko_ime'].errors['maxlength']">
+            Username must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group register_field" id="gen">
+        
+       <i class="register__icon fas fa-venus-mars" style="top: 24px;
+       margin-left: -17px;"></i>
+    <p style="margin-left:10px"> Gender</p>
+          <div class="inline">
+          <input
+      id="male"
+      type="radio"
+      value="male"
+      formControlName="pol"
+    />
+    <label class="" for="male" style="margin-left:10px">Male</label>
+       </div>
+       <div class="inline">
+        <input
+          type="radio"
+          id="female"
+          value="female"
+          formControlName="pol"
+          [ngClass]="{ 'is-invalid': submitted && f['pol'].errors }"
+        />
+        <label class="" for="female" style="margin-left:10px">Female</label>
+      </div>
+       <div *ngIf="submitted && f['pol'].errors" class="invalid-feedback">
+          <div *ngIf="f['pol'].errors['required']">Gender is required</div>
+      
+      </div></div>
+      <div class="row">
+        <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-map-marker"></i>
+        <input
+          type="text"
+          placeholder="Street and number"
+          formControlName="ulica_broj"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['ulica_broj'].errors }"
+        />
+        <div *ngIf="submitted && f['ulica_broj'].errors" class="invalid-feedback">
+          <div *ngIf="f['ulica_broj'].errors['required']">Street and number are required</div>
+        </div>
+      </div></div>
+        <div class="col-md-6">
+          <div class="form-group  register_field">
+            <i class="register__icon fas fa-map-marker"></i>
+            <input
+              type="text"
+              placeholder="City"
+              formControlName="grad"
+              class="form-control register__input"
+              [ngClass]="{ 'is-invalid': submitted && f['grad'].errors }"
+            />
+            <div *ngIf="submitted && f['grad'].errors" class="invalid-feedback">
+              <div *ngIf="f['grad'].errors['required']">City is required</div>
+            </div>
+          </div>
+          </div></div>
+          <div class="row">
+            <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-map-marker"></i>
+        <input
+          type="text"
+          placeholder="ZIP Code"
+          formControlName="postanski_broj"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['postanski_broj'].errors }"
+        />
+        <div *ngIf="submitted && f['postanski_broj'].errors" class="invalid-feedback">
+          <div *ngIf="f['postanski_broj'].errors['required']">ZIP Code is required</div>
+        </div>
+      </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group  register_field">
+            <i class="register__icon fas fa-phone"></i>
+            <input
+              type="text"
+              placeholder="Phone number"
+              formControlName="broj_telefona"
+              class="form-control register__input"
+              [ngClass]="{ 'is-invalid': submitted && f['broj_telefona'].errors }"
+            />
+            <div *ngIf="submitted && f['broj_telefona'].errors" class="invalid-feedback">
+              <div *ngIf="f['broj_telefona'].errors['required']">Phone number is required</div>
+              <div *ngIf="f['broj_telefona'].errors['pattern']">Enter phone number in format +381000... </div>
+            </div>
+          </div>
+          </div></div>
+      <div class="form-group  register_field">
+        
+        <i class="register__icon fas fa-envelope"></i>
+        <input
+          type="text"
+          placeholder="E-mail"
+          formControlName="email"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">E-mail format is wrong, use example@example.com </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-lock"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="lozinka"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['lozinka'].errors }"
+        />
+        <div *ngIf="submitted && f['lozinka'].errors" class="invalid-feedback">
+          <div *ngIf="f['lozinka'].errors['required']">Password is required</div>
+          <div *ngIf="f['lozinka'].errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+          <div *ngIf="f['lozinka'].errors['maxlength']">
+            Username must not exceed 40 characters
+          </div>
+        </div>
+      </div>
+</div>
+  <div class="col-md-6">
+      <div class="form-group  register_field">
+        <i class="register__icon fas fa-lock"></i>
+        <input
+          type="password"
+          placeholder="Confirm password"
+          formControlName="potvrditi_lozinku"
+          class="form-control register__input"
+          [ngClass]="{ 'is-invalid': submitted && f['potvrditi_lozinku'].errors }"
+        />
+        <div *ngIf="submitted && f['potvrditi_lozinku'].errors" class="invalid-feedback">
+          <div *ngIf="f['potvrditi_lozinku'].errors['required']">Password is required</div>
+          <div *ngIf="f['potvrditi_lozinku'].errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+          <div *ngIf="f['potvrditi_lozinku'].errors['maxlength']">
+            Username must not exceed 40 characters
+          </div>
+          <div *ngIf="f['potvrditi_lozinku'].errors['matching']">
+            Confirm Password does not match
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary register__submit"><span class="button__text">Sign Up Now</span> 	<i class="button__icon fas fa-chevron-right"></i></button>
+        <span style=" display: block;
+        text-align: center;
+        margin-top:19px;font-weight: 600;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;">Already have an account? <a routerLink="/user_login">Sign in</a></span>
+  
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,173 @@
+
+<app-header></app-header>
+
+<div class="container-fluid" [ngSwitch]="menuType">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="nvs" *ngSwitchCase="'default'">
+      <a href="#" class="navbar-brand">MENU</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="main_nav">
+      
+              <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link"routerLinkActive="active" routerLink="/home">Home</a>
+                  <a  class="nav-item nav-link" routerLinkActive="active" (click)="fruit()" style="cursor:pointer">Fruits</a>
+                  <a href="" class="nav-item nav-link" routerLinkActive="active" routerLink="/cart-second">Cart </a>
+                  <a href="" class="nav-item nav-link" routerLinkActive="active" routerLink="/wishlist">Wishlist</a>
+                  <a href="" class="nav-item nav-link" routerLink='/contact' routerLinkActive="active">Contact</a>
+                 
+              </div>
+  <div>
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" > Account </a>
+          <ul class="dropdown-menu">
+            <li ><a class="dropdown-item" routerLink = "/admin_login" > Admin </a></li>
+            <li><a class="dropdown-item" href="#" > User <i class="fa fa-arrow-right"></i></a>
+              
+               <ul class="submenu submenu-left dropdown-menu">
+                  <li routerLinkActive="active"><a class="dropdown-item"  routerLink = "/user_login"  > Login</a></li>
+                  <li><a class="dropdown-item" routerLink = "/user_register"> Register</a></li>
+                 </ul>
+            </li>
+             </ul>
+      </li>
+      </ul>
+      </div>
+      </div> 
+      </nav>
+     
+
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="nvs" *ngSwitchCase="'logged'">
+        <a href="#" class="navbar-brand">MENU</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="main_nav">
+        
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" routerLinkActive="active" routerLink="/home"  >Home</a>
+                    <a style="cursor:pointer" class="nav-item nav-link" routerLinkActive="active" (click)="fruit()">Fruits</a>
+                    <a href="" class="nav-item nav-link" routerLinkActive="active" routerLink="/cart-second">Cart</a>
+                    <a href="" class="nav-item nav-link" routerLinkActive="active" routerLink="/wishlist">Wishlist</a>
+                    <a href="" class="nav-item nav-link" (click)="myaccount()" routerLinkActive="active">My Account</a>
+                    <a href="" class="nav-item nav-link" routerLink='/contact' routerLinkActive="active">Contact</a>
+                </div>
+    <div>
+        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="text-transform: capitalize;" >{{userName | titlecase}} </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink = "/dashboard" id="pr"><i class="fa fa-user"></i>  Profile </a></li>
+                <li (click)="logout()"><a class="dropdown-item" href="javascript:void(0);" id="pr" style=" text-decoration: none;"><i class="fa fa-sign-out"></i> Logout</a></li>
+          </ul>
+        </li>
+        </ul>
+        </div>
+        </div> 
+        </nav>
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="nvs" *ngSwitchCase="'adminlogged'">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="main_nav">
+            
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/home"  >Home</a>
+                        <a style="cursor:pointer" class="nav-item nav-link" routerLinkActive="active" (click)="fruit()">Fruits</a>
+                        <a style="cursor:pointer" class="nav-item nav-link" routerLinkActive="active" (click)="fruits()">Change fruits</a>
+                        <a style="cursor:pointer"class="nav-item nav-link" routerLinkActive="active" (click)="user()">Change users</a>
+                        <a style="cursor:pointer" class="nav-item nav-link"  routerLinkActive="active" (click)="order()">Change orders</a>
+                        <a href="" class="nav-item nav-link" routerLink='/admin-messages' routerLinkActive="active">Check messages</a>
+                    </div>
+        <div>
+            <ul class="navbar-nav ml-auto" >
+                   <li (click)="logoutAdmin()"><a  href="javascript:void(0);" style="color:white; text-decoration: none;"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+            </div>
+            </div> 
+            </nav>
+        
+       
+</div>
+
+ <div class="bottom-bar">
+    <div class="container-fluid" style="background:white;">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div class="logo">
+                    <a href="" routerLink="/" id="im">
+                        <img src="./assets/img/frutilla1.png" alt="Logo" style="margin-left:50px">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="search">
+                    <input type="text"  #searchInput
+                    (keyup)="searchProduct($event)"(blur)="hideSearch()" placeholder="Search">
+                    <button (click)="submitSearch(searchInput.value)"><i class="fa fa-search"></i></button>
+                    <ul class="suggested-search"  style="position:absolute;width: 97.4%;
+                    padding-top:15px;
+                    background-color: #f8e5e5;
+                    color:black; list-style: none;
+                    border: 1px solid #FF6F61; overflow: visible; z-index: 1;
+                    text-decoration: none;
+                    margin-top: 10px;
+                    border-radius: 4px;" *ngIf="searchResult  && res===true ">
+                        <li style="padding-top: 0px;" *ngFor="let item of searchResult">
+                          <a href=""(mousedown)="redirectToDetails(item.id)" >{{item.naziv}}</a>
+                        <hr style="
+        color: #a9a9a9;
+                    padding-top: 15px;
+                    padding-bottom: 0px;
+        opacity: 0.3;
+        margin-bottom:0px;
+      "></li>
+                        
+                      </ul>
+                      <ul class="suggested-search"  style="position:absolute;width: 97.4%;
+                      padding-top:15px;
+                      background-color: #f8e5e5;
+                      color:black; list-style: none;
+                      border: 1px solid #FF6F61; overflow: visible; z-index: 1;
+                      text-decoration: none;
+                      margin-top: 10px;
+                      border-radius: 4px;" *ngIf="searchResult && res===false">
+                          <li style="padding-top: 0px;">
+                            <p>There are no products with that name.</p>
+                          <hr style="
+          color: #a9a9a9;
+                      padding-top: 15px;
+                      padding-bottom: 0px;
+          opacity: 0.3;
+          margin-bottom:0px;
+        "></li>
+                          
+                        </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div *ngIf="menu" class="user">
+                    <a href="" routerLink="/wishlist" id="btn-main" class="btn wishlist">
+                        <i class="fa fa-heart"></i>
+                        <span> ({{wishItems}})</span>
+                    </a>
+                    <a href="" routerLink="/cart-second" id="btn-main" class="btn cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span> ({{cartItems}})</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

@@ -1,0 +1,17 @@
+table .thead-dark th {
+    text-align: center;
+    color: #353535;
+    background: #ffffff;
+    border-color: #dddddd;
+    border-bottom: none;
+    vertical-align: middle;}
+ table td{ 
+      vertical-align: middle;
+      background-color: white;
+    }
+table{
+    text-align: center;
+}
+.table-responsive{
+    overflow: hidden;
+}

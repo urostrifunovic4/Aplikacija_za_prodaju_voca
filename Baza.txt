@@ -1,0 +1,293 @@
+
+DESNI KLIK NA NAZIV BAZE --->> NEW QUERY, UNESES SVE OVO ISPOD I POKRECES JEDNO PO JEDNO
+
+----------------------ADMIN-----------------------
+
+CREATE TABLE [dbo].[Admin] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [korisnicko_ime] NVARCHAR (30) NULL,
+    [lozinka]        NVARCHAR (15) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Admin] ON
+INSERT INTO [dbo].[Admin] ([Id], [korisnicko_ime], [lozinka]) VALUES (1, N'admin                         ', N'admin          ')
+SET IDENTITY_INSERT [dbo].[Admin] OFF
+
+----------------------ADRESA-----------------------
+
+CREATE TABLE [dbo].[Adresa] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Grad]           NVARCHAR (50) NULL,
+    [Ulica_broj]     NVARCHAR (50) NULL,
+    [Postanski_broj] NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Adresa] ON
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1, N'foifi', N'45665', N'48484')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1007, N'Beograd', N'Brigada 4', N'11000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1008, N'Cara Lazara 32', N'Cara Lazara 32', N'17000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1009, N'Pozarevac', N'Stefana Nemanje 34', N'13000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1010, N'Nis', N'Knicaninova 34', N'14000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1011, N'Kraljevo', N'Cara Lazara 55', N'13000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1012, N'Beograd', N'Cara Lazara 32', N'11000')
+INSERT INTO [dbo].[Adresa] ([Id], [Grad], [Ulica_broj], [Postanski_broj]) VALUES (1013, N'Cacak', N'Nadezde Petrovic 34', N'32000')
+SET IDENTITY_INSERT [dbo].[Adresa] OFF
+
+
+----------------------IZNOS-----------------------
+
+CREATE TABLE [dbo].[Iznos] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [Cena]      DECIMAL (8, 2) NULL,
+    [Taksa]     INT            NULL,
+    [Dostava]   INT            NULL,
+    [Ukupno]    DECIMAL (8, 2) NULL,
+    [Id_kupona] INT            NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Iznos_Kupon] FOREIGN KEY ([Id_kupona]) REFERENCES [dbo].[Kupon] ([Id])
+);
+
+SET IDENTITY_INSERT [dbo].[Iznos] ON
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3133, CAST(7.00 AS Decimal(8, 2)), 0, 100, CAST(107.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3134, CAST(93.00 AS Decimal(8, 2)), 0, 100, CAST(193.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3135, CAST(756.00 AS Decimal(8, 2)), 0, 100, CAST(856.00 AS Decimal(8, 2)), 1)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3136, CAST(527.00 AS Decimal(8, 2)), 0, 100, CAST(627.00 AS Decimal(8, 2)), 1)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3137, CAST(66.00 AS Decimal(8, 2)), 0, 100, CAST(166.00 AS Decimal(8, 2)), 1)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3138, CAST(2252.00 AS Decimal(8, 2)), 0, 100, CAST(2352.00 AS Decimal(8, 2)), 1)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3139, CAST(14.00 AS Decimal(8, 2)), 0, 100, CAST(114.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3140, CAST(0.00 AS Decimal(8, 2)), 0, 100, CAST(100.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3141, CAST(16.00 AS Decimal(8, 2)), 0, 100, CAST(116.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3142, CAST(0.00 AS Decimal(8, 2)), 0, 100, CAST(100.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3143, CAST(21.00 AS Decimal(8, 2)), 0, 100, CAST(121.00 AS Decimal(8, 2)), 1)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3144, CAST(8.00 AS Decimal(8, 2)), 0, 100, CAST(108.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3145, CAST(14.00 AS Decimal(8, 2)), 0, 100, CAST(114.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3146, CAST(0.00 AS Decimal(8, 2)), 0, 100, CAST(100.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3147, CAST(0.00 AS Decimal(8, 2)), 0, 100, CAST(100.00 AS Decimal(8, 2)), NULL)
+INSERT INTO [dbo].[Iznos] ([Id], [Cena], [Taksa], [Dostava], [Ukupno], [Id_kupona]) VALUES (3148, CAST(16.00 AS Decimal(8, 2)), 0, 100, CAST(116.00 AS Decimal(8, 2)), NULL)
+SET IDENTITY_INSERT [dbo].[Iznos] OFF
+
+
+----------------------KORPA-----------------------
+
+CREATE TABLE [dbo].[Korpa] (
+    [Id]              INT            IDENTITY (1, 1) NOT NULL,
+    [Naziv]           NVARCHAR (40)  NULL,
+    [Kolicina]        INT            NULL,
+    [Cena]            DECIMAL (8, 2) NULL,
+    [Path]            NVARCHAR (MAX) NULL,
+    [Id_vocka_vrsta]  INT            NULL,
+    [Id_kupca]        INT            NULL,
+    [Id_iznosa]       INT            NULL,
+	[Id_narudzbine]       INT            NULL,
+    [Dodata_kolicina] INT            NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Korpa_Vocka_Vrsta] FOREIGN KEY ([Id_vocka_vrsta]) REFERENCES [dbo].[Vocka_Vrsta] ([Id]),
+    CONSTRAINT [FK_Korpa_Kupac] FOREIGN KEY ([Id_kupca]) REFERENCES [dbo].[Kupac] ([Id]),
+    CONSTRAINT [FK_Korpa_Iznos] FOREIGN KEY ([Id_iznosa]) REFERENCES [dbo].[Iznos] ([Id]),
+	CONSTRAINT [FK_Korpa_Narudzbina] FOREIGN KEY ([Id_narudzbine]) REFERENCES [dbo].[Narudzbina] ([Id])
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Korpa] ON
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (20, N'Golden Nugget', 49, CAST(55.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\GNM-04102023174154.jpg', 7031, 2007, 3148, 4093, 1)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (23, N'Viljamovka', 220, CAST(178.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\vilja-04112023104853.jpg', 4011, 2007, 3148, 4094, 4)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (24, N'Klerzo', 22, CAST(22.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\sorta-krusaka-za-rakiju-04112023104634.jpg', 6009, 2007, 3148, 4094, 2)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (25, N'Valjevka', 99, CAST(45.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Valjevka2-04112023103748.jpg', 4009, 2007, 3148, 4095, 3)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (26, N'Stanley', 80, CAST(77.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\1513-04112023103654.jpg', 4008, 2007, 3148, 4095, 5)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (28, N'Idared', 85, CAST(22.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\apple-04102023181605.jpg', 4006, 2007, 3148, 4096, 1)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (29, N'Pink Lady', 22, CAST(44.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\pink-04112023093504.jpg', 6006, 2007, 3148, 4096, 1)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (30, N'Duke', 600, CAST(560.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\istockphoto-172315512-170667a-04112023111128.jpg', 4016, 2007, 3148, 4097, 4)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (31, N'Erika', 4, CAST(4.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Rubus-idaeus-Erika-Raspberry-04112023110349.jpg', 6015, 2007, 3148, 4097, 3)
+INSERT INTO [dbo].[Korpa] ([Id], [Naziv], [Kolicina], [Cena], [Path], [Id_vocka_vrsta], [Id_kupca], [Id_iznosa], [Id_narudzbine], [Dodata_kolicina]) VALUES (37, N'Shizuka', 34, CAST(8.00 AS Decimal(8, 2)), N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\IMG_5580-04112023133641.jpg', 7035, 2007, 3148, NULL, 2)
+SET IDENTITY_INSERT [dbo].[Korpa] OFF
+
+----------------------KUPAC-----------------------
+
+CREATE TABLE [dbo].[Kupac] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Korisnicko_ime] NVARCHAR (50) NOT NULL,
+    [Lozinka]        NVARCHAR (20) NOT NULL,
+    [Ime]            NVARCHAR (50) NOT NULL,
+    [Prezime]        NVARCHAR (50) NOT NULL,
+    [Pol]            NVARCHAR (50) NOT NULL,
+    [Id_adresa]      INT           NULL,
+    [Broj_telefona]  NVARCHAR (20) NULL,
+    [Email]          NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Kupac_Adresa] FOREIGN KEY ([Id_adresa]) REFERENCES [dbo].[Adresa] ([Id])
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Kupac] ON
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2, N'marko.markovic', N'marko.mare', N'Marko', N'Markovic', N'muski', 1, N'+39163491485', N'markomare@gmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2007, N'makkkka', N'makkka', N'Marija', N'Mikic', N'female', 1007, N'+38139448484', N'marija@gmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2008, N'adjaStoj', N'adjaStoj', N'Andjela', N'Stojicevic', N'female', 1008, N'+381635945566', N'andjela@gmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2009, N'stefooo', N'stefoPetric', N'Stefan', N'Petric', N'male', 1009, N'+43294585540', N'stefann@gmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2010, N'petarPetr', N'petrovic', N'Petar', N'Petrovic', N'male', 1010, N'+39164944485', N'petar@petrovic.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2011, N'mireee9', N'mirkovic9', N'Mirko', N'Mirkovic', N'male', 1011, N'+3815694983', N'mirko@gmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2012, N'nidzaaa3', N'nidzica', N'Nikola', N'Nikolic', N'male', 1012, N'+38198895666', N'nidza@hotmail.com')
+INSERT INTO [dbo].[Kupac] ([Id], [Korisnicko_ime], [Lozinka], [Ime], [Prezime], [Pol], [Id_adresa], [Broj_telefona], [Email]) VALUES (2013, N'ficaaaa', N'fica123', N'Filip', N'Stojicevic', N'male', 1013, N'+38184595585', N'fica@gmail.com')
+SET IDENTITY_INSERT [dbo].[Kupac] OFF
+
+----------------------KUPON-----------------------
+
+CREATE TABLE [dbo].[Kupon] (
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [Naziv]        NVARCHAR (50) NOT NULL,
+    [Procenat]     INT           NOT NULL,
+    [Datum_isteka] INT           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Kupon] ON
+INSERT INTO [dbo].[Kupon] ([Id], [Naziv], [Procenat], [Datum_isteka]) VALUES (1, N'vocka20', 20, NULL)
+SET IDENTITY_INSERT [dbo].[Kupon] OFF
+
+
+----------------------LISTA ZELJA-----------------------
+
+CREATE TABLE [dbo].[ListaZelja] (
+    [Id]             INT IDENTITY (1, 1) NOT NULL,
+    [Id_vocka_vrsta] INT NULL,
+    [Id_kupca]       INT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_ListaZelja_Vocka_Vrsta] FOREIGN KEY ([Id_vocka_vrsta]) REFERENCES [dbo].[Vocka_Vrsta] ([Id]),
+    CONSTRAINT [FK_ListaZelja_Kupac] FOREIGN KEY ([Id_kupca]) REFERENCES [dbo].[Kupac] ([Id])
+);
+
+
+----------------------NARUDZBINA-----------------------
+CREATE TABLE [dbo].[Narudzbina] (
+    [Id]             INT             IDENTITY (1, 1) NOT NULL,
+    [Ime]            NVARCHAR (50)   NULL,
+    [Prezime]        NVARCHAR (50)   NULL,
+    [Email]          NVARCHAR (50)   NULL,
+    [Adresa]         NVARCHAR (50)   NULL,
+    [Grad]           NVARCHAR (50)   NULL,
+    [Postanski_broj] NVARCHAR (50)   NULL,
+    [Broj_telefona]  NVARCHAR (50)   NULL,
+    [UkupnaCena]     DECIMAL (18, 2) NULL,
+    [Id_kupca]       INT             NULL,
+    [Status]         NVARCHAR (50)   NULL,
+    [Datum]          DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Narudzbina_Kupac] FOREIGN KEY ([Id_kupca]) REFERENCES [dbo].[Kupac] ([Id])
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Narudzbina] ON
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4092, N'Petar', N'Petrovic', N'petar@petrovic.com', N'Knicaninova 34', N'Nis', N'14000', N'+39164944485', CAST(107.00 AS Decimal(18, 2)), 2010, N'In progress', N'2023-04-11 11:52:30')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4093, N'Marija', N'Mikic', N'marija@gmail.com', N'Brigada 4', N'Beograd', N'11000', N'+38139448484', CAST(193.00 AS Decimal(18, 2)), 2007, N'In progress', N'2023-04-11 12:04:32')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4094, N'Andjela', N'Stojicevic', N'andjela@gmail.com', N'Cara Lazara 32', N'Vranje', N'17000', N'+381635945566', CAST(704.80 AS Decimal(18, 2)), 2008, N'In progress', N'2023-04-11 12:25:41')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4095, N'Stefan', N'Petric', N'stefann@gmail.com', N'Stefana Nemanje 34', N'Pozarevac', N'13000', N'+43294585540', CAST(521.60 AS Decimal(18, 2)), 2009, N'In progress', N'2023-04-11 12:53:32')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4096, N'Mirko', N'Mirkovic', N'mire@gmail.com', N'Cara Lazara 55', N'Valjevo', N'13000', N'+3815694984', CAST(152.80 AS Decimal(18, 2)), 2011, N'In progress', N'2023-04-11 12:56:58')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4097, N'Nikola', N'Nikolic', N'nidza@hotmail.com', N'Cara Lazara 32', N'Beograd', N'11000', N'+38198895666', CAST(1901.60 AS Decimal(18, 2)), 2012, N'In progress', N'2023-04-11 13:51:08')
+INSERT INTO [dbo].[Narudzbina] ([Id], [Ime], [Prezime], [Email], [Adresa], [Grad], [Postanski_broj], [Broj_telefona], [UkupnaCena], [Id_kupca], [Status], [Datum]) VALUES (4098, N'Filip ', N'Stojicevic', N'fica@gmail.com', N'Nadezde Petrovic 34', N'Cacak', N'32000', N'+38184595585', CAST(116.80 AS Decimal(18, 2)), NULL, N'In progress', N'2023-04-11 14:07:41')
+SET IDENTITY_INSERT [dbo].[Narudzbina] OFF
+----------------------OCENE-----------------------
+
+CREATE TABLE [dbo].[Ocene] (
+    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [Ime]            NVARCHAR (50)  NOT NULL,
+    [Email]          NVARCHAR (50)  NOT NULL,
+    [Opis]           NVARCHAR (MAX) NOT NULL,
+    [Broj_zvezdica]  INT            NOT NULL,
+    [Id_vocke_vrste] INT            NOT NULL,
+    [Datum]          DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[Ocene] ON
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2008, N'Petar', N'petarr@gmail.com', N'Great fruit!', 5, 1004, N'2023-04-13 09:02:00')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2009, N'Nikola', N'Petrovic', N'Always amazing fresh produce with friendly/helpful service.', 1, 1004, N'2023-04-13 09:03:23')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2010, N'Petra', N'Maric', N'The quality and freshness are excellent.', 5, 4017, N'2023-04-13 09:05:51')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2011, N'Anna', N'Lewick', N'Could be better.', 2, 4017, N'2023-04-13 09:06:16')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2012, N'Leona', N'Leoni', N'Great!', 5, 4017, N'2023-04-13 09:07:31')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2015, N'Ivan', N'ive@gmail.com', N'Started ordering from here during lockdown and I''ll never go back to supermarket fruit and veg again. So easy to order, always delivered when scheduled, stays fresh for ages and so much flavour. ', 5, 4006, N'2023-04-13 09:33:09')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2016, N'Nevena', N'Nevic', N'Super good!', 5, 4011, N'2023-04-13 09:36:52')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2017, N'Marko', N'marko@gmail.com', N'Fresh and jummy!', 5, 7030, N'2023-04-13 09:37:28')
+INSERT INTO [dbo].[Ocene] ([Id], [Ime], [Email], [Opis], [Broj_zvezdica], [Id_vocke_vrste], [Datum]) VALUES (2018, N'Petra', N'petr@gmail.com', N'Fast delivery, delicious bananas. All recommendations.', 5, 9030, N'2023-04-13 09:38:10')
+SET IDENTITY_INSERT [dbo].[Ocene] OFF
+
+
+----------------------VOCKA-----------------------
+CREATE TABLE [dbo].[Vocka] (
+    [Id]    INT           IDENTITY (1, 1) NOT NULL,
+    [Naziv] NVARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Vocka] ON
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (1, N'Apple')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (2, N'Plum')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (3, N'Pear')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (4, N'Raspberry')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (5, N'Blueberry')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (6, N'Cherry')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (6001, N'Tangerine')
+INSERT INTO [dbo].[Vocka] ([Id], [Naziv]) VALUES (7002, N'Banana')
+SET IDENTITY_INSERT [dbo].[Vocka] OFF
+
+
+
+----------------------VOCKA VRSTA-----------------------
+
+CREATE TABLE [dbo].[Vocka_Vrsta] (
+    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [Naziv]    NVARCHAR (40)  NOT NULL,
+    [Kolicina] INT            NOT NULL,
+    [Cena]     DECIMAL (8, 2) NOT NULL,
+    [Id_vocke] INT            NOT NULL,
+    [Path]     NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Vocka_Vrsta_Vocka] FOREIGN KEY ([Id_vocke]) REFERENCES [dbo].[Vocka] ([Id])
+);
+
+PODACI
+SET IDENTITY_INSERT [dbo].[Vocka_Vrsta] ON
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (1004, N'Granny Smith', 550, CAST(35.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\apples_granny_smith_opt-04102023181035.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (2007, N'Jonatan', 25, CAST(27.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Jonathan-Apples-04102023181217.jpeg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4006, N'Idared', 84, CAST(22.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\apple-04102023181605.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4008, N'Stanley', 75, CAST(77.00 AS Decimal(8, 2)), 2, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\1513-04112023103654.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4009, N'Valjevka', 96, CAST(45.00 AS Decimal(8, 2)), 2, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Valjevka2-04112023103748.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4010, N'Karmen', 500, CAST(88.00 AS Decimal(8, 2)), 3, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\cascina-palazzo-pere-carmen-04112023104246.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4011, N'Viljamovka', 216, CAST(178.00 AS Decimal(8, 2)), 3, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\vilja-04112023104853.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4012, N'Vilamet', 800, CAST(140.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\malina-vilamet-04112023104950.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4013, N'Sokolica', 120, CAST(118.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\pepinierele fundulea zmeura mare polka-04112023105051.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4014, N'Darrow', 280, CAST(345.00 AS Decimal(8, 2)), 5, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\darrow_blueberry_600x600-04112023110122.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4015, N'Polar', 330, CAST(392.00 AS Decimal(8, 2)), 5, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\fdor_postcrop2021_bleuets010-3512-fr-1633011847-04112023105805.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4016, N'Duke', 596, CAST(560.00 AS Decimal(8, 2)), 6, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\istockphoto-172315512-170667a-04112023111128.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (4017, N'Stella', 80, CAST(466.00 AS Decimal(8, 2)), 6, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\shutterstock_1119079490Optimized-04112023110637.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6004, N'Golden Delicious', 200, CAST(33.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\2393735-04102023181800.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6005, N'Red Chief', 300, CAST(38.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\red-04112023093635.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6006, N'Pink Lady', 21, CAST(44.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\pink-04112023093504.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6007, N'Hanita', 22, CAST(22.00 AS Decimal(8, 2)), 2, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\gjltGQHV2mePDT6GrewC68PeWvTJMQz8CzF2Fntd-04112023103846.jpeg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6008, N'Agen', 22, CAST(22.00 AS Decimal(8, 2)), 2, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\plum-04112023104110.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6009, N'Klerzo', 20, CAST(22.00 AS Decimal(8, 2)), 3, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\sorta-krusaka-za-rakiju-04112023104634.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6010, N'Karamanka', 33, CAST(33.00 AS Decimal(8, 2)), 3, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\259124843-04112023104725.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6012, N'Meeker', 44, CAST(44.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\5670_18-1-04112023105256.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6013, N'Canby', 44, CAST(44.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Raspberry_Canby_OnVine-04112023105340.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6014, N'Leo', 44, CAST(44.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Raspberry_Malling-Leo-04112023105423.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6015, N'Erika', 1, CAST(4.00 AS Decimal(8, 2)), 4, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Rubus-idaeus-Erika-Raspberry-04112023110349.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6016, N'Elliott', 5, CAST(5.00 AS Decimal(8, 2)), 5, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\Blueberry_Elliott2-04112023105843.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6018, N'Bluecrop', 5, CAST(5.00 AS Decimal(8, 2)), 5, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\pl0000001890-04112023110214.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6019, N'Sumit', 6, CAST(6.00 AS Decimal(8, 2)), 6, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\5A4Wlm2rd9kAj2C1aEOCP5gENmnSRk5u6Dz03d8r-04112023110720.jpeg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (6020, N'Bing', 6, CAST(6.00 AS Decimal(8, 2)), 6, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\wallpaper2you_471328-04112023111140.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (7030, N'Clementine', 300, CAST(100.00 AS Decimal(8, 2)), 6001, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\1-04052023200658-04102023165017.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (7031, N'Golden Nugget', 49, CAST(55.00 AS Decimal(8, 2)), 6001, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\GNM-04102023174154.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (7032, N'Murcott ', 60, CAST(23.00 AS Decimal(8, 2)), 6001, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\download-04102023165654.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (7033, N'Pixie', 44, CAST(7.00 AS Decimal(8, 2)), 6001, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\fruit_0002_Layer1_1200x1200-04112023131923.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (7035, N'Shizuka', 34, CAST(8.00 AS Decimal(8, 2)), 1, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\IMG_5580-04112023133641.jpg')
+INSERT INTO [dbo].[Vocka_Vrsta] ([Id], [Naziv], [Kolicina], [Cena], [Id_vocke], [Path]) VALUES (9030, N'Cavendish', 45, CAST(34.00 AS Decimal(8, 2)), 7002, N'E:\\Sajt-projekat-gotov\Pokusaj\Samples\image-20161021-1763-13xoceb-04122023185240.avif')
+SET IDENTITY_INSERT [dbo].[Vocka_Vrsta] OFF
+
+
+
+----------------------CONTACT-----------------------
+imas vec contact

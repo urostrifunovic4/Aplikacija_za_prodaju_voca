@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "angular": "^1.8.2",
+    "install": "^0.13.0",
+    "jquery": "^3.6.4",
+    "ngx-slick-carousel": "^15.0.0",
+    "ngx-slickjs": "^1.5.2",
+    "npm": "^9.6.2",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.2.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^9.1.1"
+  }
+}

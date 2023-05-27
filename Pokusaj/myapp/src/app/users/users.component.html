@@ -1,0 +1,68 @@
+ <div class="users-page">
+    
+    <div class="container-fluid ">
+        <div class="users-page-inner">
+            <div>
+        <h4 style="display:inline-block">ALL REGISTERED USERS</h4>
+        <h6 style=" float: right; color:gray" class="ml-auto">Number of users:  {{len}}</h6></div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+                
+                <div class="card-body p-4">
+                    <div ng-app="myapp" ng-contoller="tableContoller">
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Phone number</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         <tr *ngFor="let kupac of kupci;let index=index">
+                            <td>
+                              {{kupac.id}}
+                            </td>
+                            <td>
+                                {{kupac.korisnicko_ime}}
+                              </td>
+                            <td>
+                                {{kupac.ime}} {{kupac.prezime}}
+                              </td>
+                              <td>
+                                {{kupac.pol}}
+                              </td>
+                               <td >
+                              {{kupac.adresa}} 
+                              </td>  
+                              <td>
+                                {{kupac.broj_telefona}}
+                              </td>
+                              <td>
+                                {{kupac.email}}
+                              </td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-icon-only" href="#" id="butt"  (click)="deleteUser(kupac)"  role="button"  aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div></div>
+                   
+                </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+</div>

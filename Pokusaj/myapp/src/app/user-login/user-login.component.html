@@ -1,0 +1,58 @@
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login">
+   
+   <h1 id="naslov">LOGIN HERE!</h1>
+   <hr style="
+        color: #a9a9a9;
+        opacity: 0.3;
+      ">
+    <div class="form-group login_field">
+      <i class="login__icon fas fa-user"></i>
+      <input
+        type="text"
+        formControlName="korisnicko_ime"
+        placeholder="Username"
+        class="form-control login__input"
+        [ngClass]="{ 'is-invalid': submitted && f['korisnicko_ime'].errors }"
+      />
+      <div *ngIf="submitted && f['korisnicko_ime'].errors" class="invalid-feedback">
+        <div *ngIf="f['korisnicko_ime'].errors['required']">Username is required</div>
+        <div *ngIf="f['korisnicko_ime'].errors['minlength']">
+          Username must be at least 6 characters
+        </div>
+        <div *ngIf="f['korisnicko_ime'].errors['maxlength']">
+          Username must not exceed 20 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group login_field">
+      <i class="login__icon fas fa-lock"></i>
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="lozinka"
+        class="form-control login__input"
+        [ngClass]="{ 'is-invalid': submitted && f['lozinka'].errors }"
+      />
+      <div *ngIf="submitted && f['lozinka'].errors" class="invalid-feedback">
+        <div *ngIf="f['lozinka'].errors['required']">Password is required</div>
+        <div *ngIf="f['lozinka'].errors['minlength']">
+          Password must be at least 6 characters
+        </div>
+        <div *ngIf="f['lozinka'].errors['maxlength']">
+          Username must not exceed 40 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary login__submit"><span class="button__text">Log In Now</span> 	<i class="button__icon fas fa-chevron-right"></i></button>
+      <span style=" display: block;
+      text-align: center;
+      margin-top:19px;font-weight: 600;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;">Don't have an account? <a routerLink="/user_register">Sign up</a></span>
+   </div> 
+         
+
+  </form> 
+ 
